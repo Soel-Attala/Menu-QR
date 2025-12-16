@@ -1,0 +1,306 @@
+/* Main Styles */
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--background);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+/* ========================================
+   HEADER
+   ======================================== */
+
+.header {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: var(--white);
+    padding: var(--spacing-2xl) var(--spacing-md);
+    text-align: center;
+    box-shadow: var(--shadow-md);
+}
+
+.restaurant-name {
+    font-size: var(--text-4xl);
+    font-weight: var(--weight-bold);
+    margin-bottom: var(--spacing-sm);
+}
+
+.restaurant-tagline {
+    font-size: var(--text-lg);
+    opacity: 0.9;
+}
+
+/* ========================================
+   CONTROLS (Search & Filters)
+   ======================================== */
+
+.controls {
+    background-color: var(--white);
+    padding: var(--spacing-xl) 0;
+    box-shadow: var(--shadow-sm);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.search-box {
+    margin-bottom: var(--spacing-lg);
+}
+
+.search-input {
+    width: 100%;
+    padding: var(--spacing-md);
+    font-size: var(--text-base);
+    border: 2px solid var(--text-light);
+    border-radius: var(--radius-lg);
+    transition: border-color var(--transition-normal);
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+.filters {
+    display: flex;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.filter-btn {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border: 2px solid var(--text-light);
+    background-color: var(--white);
+    color: var(--text-dark);
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+    transition: all var(--transition-normal);
+}
+
+.filter-btn:hover {
+    border-color: var(--primary);
+    background-color: var(--background);
+}
+
+.filter-btn.active {
+    background-color: var(--primary);
+    color: var(--white);
+    border-color: var(--primary);
+}
+
+/* ========================================
+   MENU SECTION
+   ======================================== */
+
+.menu-section {
+    padding: var(--spacing-3xl) 0;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--spacing-xl);
+}
+
+.menu-item {
+    background-color: var(--card-bg);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-normal);
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-item:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.menu-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: var(--spacing-sm);
+}
+
+.menu-item-name {
+    font-size: var(--text-xl);
+    font-weight: var(--weight-bold);
+    color: var(--text-dark);
+    flex: 1;
+}
+
+.menu-item-price {
+    font-size: var(--text-xl);
+    font-weight: var(--weight-bold);
+    color: var(--primary);
+    white-space: nowrap;
+    margin-left: var(--spacing-sm);
+}
+
+.menu-item-description {
+    font-size: var(--text-sm);
+    color: var(--text-medium);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.5;
+    flex-grow: 1;
+}
+
+.menu-item-category {
+    display: inline-block;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background-color: var(--background);
+    color: var(--text-medium);
+    border-radius: var(--radius-full);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-medium);
+    text-transform: capitalize;
+}
+
+.no-results {
+    text-align: center;
+    padding: var(--spacing-3xl);
+    color: var(--text-medium);
+    font-size: var(--text-lg);
+}
+
+/* ========================================
+   QR CODE SECTION
+   ======================================== */
+
+.qr-section {
+    background-color: var(--white);
+    padding: var(--spacing-3xl) var(--spacing-md);
+    text-align: center;
+}
+
+.qr-section h2 {
+    font-size: var(--text-3xl);
+    color: var(--text-dark);
+    margin-bottom: var(--spacing-sm);
+}
+
+.qr-section p {
+    color: var(--text-medium);
+    margin-bottom: var(--spacing-xl);
+}
+
+.qr-container {
+    margin-top: var(--spacing-2xl);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-lg);
+}
+
+#qr-code {
+    padding: var(--spacing-lg);
+    background-color: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.qr-instruction {
+    font-size: var(--text-lg);
+    color: var(--text-medium);
+}
+
+/* ========================================
+   BUTTONS
+   ======================================== */
+
+.btn-primary,
+.btn-secondary {
+    padding: var(--spacing-md) var(--spacing-2xl);
+    font-size: var(--text-base);
+    font-weight: var(--weight-semibold);
+    border-radius: var(--radius-lg);
+    border: none;
+    transition: all var(--transition-normal);
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+    background-color: var(--white);
+    color: var(--primary);
+    border: 2px solid var(--primary);
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary);
+    color: var(--white);
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+
+.footer {
+    background-color: var(--text-dark);
+    color: var(--white);
+    padding: var(--spacing-xl) var(--spacing-md);
+    text-align: center;
+}
+
+.footer p {
+    opacity: 0.8;
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
+@media (max-width: 768px) {
+    .restaurant-name {
+        font-size: var(--text-3xl);
+    }
+    
+    .menu-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .filters {
+        justify-content: flex-start;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: var(--spacing-sm);
+    }
+    
+    .filter-btn {
+        flex-shrink: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .restaurant-name {
+        font-size: var(--text-2xl);
+    }
+    
+    .menu-item-header {
+        flex-direction: column;
+        gap: var(--spacing-xs);
+    }
+    
+    .menu-item-price {
+        margin-left: 0;
+    }
+}

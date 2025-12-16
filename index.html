@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Digital restaurant menu with QR code">
+    <title>Restaurant Menu - Digital Menu QR</title>
+    
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container">
+            <h1 class="restaurant-name">🍕 La Trattoria</h1>
+            <p class="restaurant-tagline">Authentic Italian Cuisine</p>
+        </div>
+    </header>
+
+    <!-- SEARCH AND FILTERS -->
+    <section class="controls">
+        <div class="container">
+            <div class="search-box">
+                <input type="text" 
+                       id="search" 
+                       placeholder="🔍 Search dishes..."
+                       class="search-input">
+            </div>
+            
+            <div class="filters">
+                <button class="filter-btn active" data-category="all">All</button>
+                <button class="filter-btn" data-category="starters">Starters</button>
+                <button class="filter-btn" data-category="mains">Main Courses</button>
+                <button class="filter-btn" data-category="desserts">Desserts</button>
+                <button class="filter-btn" data-category="drinks">Drinks</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- MENU ITEMS -->
+    <section class="menu-section">
+        <div class="container">
+            <div id="menu-grid" class="menu-grid">
+                <!-- Los items se generan dinámicamente con JavaScript -->
+            </div>
+            
+            <div id="no-results" class="no-results" style="display: none;">
+                <p>No dishes found. Try another search term.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- QR CODE SECTION -->
+    <section class="qr-section">
+        <div class="container">
+            <h2>Share This Menu</h2>
+            <p>Generate a QR code for customers to scan</p>
+            <button id="generate-qr" class="btn-primary">Generate QR Code</button>
+            
+            <div id="qr-container" class="qr-container" style="display: none;">
+                <div id="qr-code"></div>
+                <p class="qr-instruction">Scan to view the menu</p>
+                <button id="download-qr" class="btn-secondary">Download QR</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 La Trattoria. Digital Menu System.</p>
+        </div>
+    </footer>
+
+    <!-- QR Code Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    
+    <!-- Our Scripts -->
+    <script src="js/menu-data.js"></script>
+    <script src="js/menu.js"></script>
+</body>
+</html>
