@@ -1,21 +1,27 @@
-/* CSS Variables - Design System */
+/* CSS Variables - Design System Artesanal */
 
 :root {
-    /* Colors */
-    --primary: #e63946;
-    --primary-dark: #d62828;
-    --secondary: #f77f00;
-    --accent: #fcbf49;
+    /* Colors - Paleta Artesanal (Marrón y Verde) */
+    --primary: #2d5016;        /* Verde oscuro artesanal */
+    --primary-dark: #1a3d0f;   /* Verde muy oscuro */
+    --secondary: #6b8e23;      /* Verde oliva */
+    --accent: #8fbc8f;         /* Verde suave */
     
-    --text-dark: #1d3567;
-    --text-medium: #457b9d;
-    --text-light: #a8dadc;
+    --brown-dark: #3e2723;     /* Marrón oscuro */
+    --brown-medium: #5d4037;   /* Marrón medio */
+    --brown-light: #8d6e63;    /* Marrón claro */
+    --cream: #f5f5dc;          /* Beige/Crema */
+    
+    --text-dark: #2c2416;      /* Texto principal */
+    --text-medium: #5d4a3a;    /* Texto secundario */
+    --text-light: #8d7a6a;     /* Texto claro */
     --white: #ffffff;
-    --background: #f1faee;
-    --card-bg: #ffffff;
+    --background: #faf8f3;     /* Fondo crema claro */
+    --card-bg: rgba(255, 255, 255, 0.95);
     
     /* Typography */
-    --font-main: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    --font-main: 'Georgia', 'Garamond', serif;
+    --font-accent: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     
     --text-xs: 0.75rem;
     --text-sm: 0.875rem;
@@ -48,9 +54,9 @@
     --radius-full: 50%;
     
     /* Shadows */
-    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
-    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-    --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.15);
+    --shadow-sm: 0 2px 4px rgba(46, 35, 25, 0.1);
+    --shadow-md: 0 4px 8px rgba(46, 35, 25, 0.15);
+    --shadow-lg: 0 8px 16px rgba(46, 35, 25, 0.2);
     
     /* Transitions */
     --transition-fast: 150ms ease;
