@@ -25,22 +25,37 @@
 </header>
 
 <!-- SEARCH AND FILTERS -->
-<section class="controls">
+<section class="controls" id="controls">
     <div class="container">
-        <div class="search-box">
-            <input type="text" 
-                   id="search" 
-                   placeholder="🔍 Search dishes..."
-                   data-i18n-placeholder="search-placeholder"
-                   class="search-input">
-        </div>
+        <!-- Toggle Button -->
+        <button class="controls-toggle" id="controls-toggle" aria-label="Toggle search and filters">
+            <span class="toggle-icon">▼</span>
+            <span class="toggle-text" data-i18n="hide-controls">Hide Search</span>
+        </button>
         
-        <div class="filters">
-            <button class="filter-btn active" data-category="all" data-i18n="filter-all">All</button>
-            <button class="filter-btn" data-category="starters" data-i18n="filter-starters">Starters</button>
-            <button class="filter-btn" data-category="mains" data-i18n="filter-mains">Main Courses</button>
-            <button class="filter-btn" data-category="desserts" data-i18n="filter-desserts">Desserts</button>
-            <button class="filter-btn" data-category="drinks" data-i18n="filter-drinks">Drinks</button>
+        <div class="controls-content" id="controls-content">
+            <div class="search-box">
+                <input type="text" 
+                       id="search" 
+                       placeholder="🔍 Search dishes..."
+                       data-i18n-placeholder="search-placeholder"
+                       class="search-input">
+            </div>
+            
+            <div class="filters">
+                <button class="filter-btn active" data-category="all" data-i18n="filter-all">All</button>
+                <button class="filter-btn" data-category="starters" data-i18n="filter-starters">Starters</button>
+                <button class="filter-btn" data-category="mains" data-i18n="filter-mains">Main Courses</button>
+                <button class="filter-btn" data-category="desserts" data-i18n="filter-desserts">Desserts</button>
+                <button class="filter-btn" data-category="drinks" data-i18n="filter-drinks">Drinks</button>
+            </div>
+
+            <!-- Botón de favoritos -->
+            <div class="favorites-filter">
+                <button class="show-favorites-btn" id="show-favorites" data-i18n="show-favorites">
+                    ❤️ Show Favorites Only
+                </button>
+            </div>
         </div>
     </div>
 </section>
@@ -72,7 +87,39 @@
         </div>
     </div>
 </section>
-
+<!-- SHARE SECTION -->
+<section class="share-section">
+    <div class="container">
+        <h2 data-i18n="share-title">Share Our Menu</h2>
+        <p data-i18n="share-description">Tell your friends about us!</p>
+        
+        <div class="share-buttons">
+            <button class="share-btn whatsapp" id="share-whatsapp">
+                <span class="share-icon">📱</span>
+                <span data-i18n="share-whatsapp">WhatsApp</span>
+            </button>
+            
+            <button class="share-btn facebook" id="share-facebook">
+                <span class="share-icon">📘</span>
+                <span data-i18n="share-facebook">Facebook</span>
+            </button>
+            
+            <button class="share-btn twitter" id="share-twitter">
+                <span class="share-icon">🐦</span>
+                <span data-i18n="share-twitter">Twitter</span>
+            </button>
+            
+            <button class="share-btn copy" id="share-copy">
+                <span class="share-icon">🔗</span>
+                <span data-i18n="share-copy">Copy Link</span>
+            </button>
+        </div>
+        
+        <div class="copy-notification" id="copy-notification">
+            <span data-i18n="link-copied">Link copied!</span>
+        </div>
+    </div>
+</section>
     <!-- FOOTER -->
     <footer class="footer">
         <div class="container">

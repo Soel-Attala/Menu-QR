@@ -3,6 +3,8 @@
 // Estado de la aplicación
 let currentCategory = 'all';
 let searchTerm = '';
+let favorites = JSON.parse(localStorage.getItem('menuFavorites')) || [];
+let showOnlyFavorites = false;
 
 // Elementos del DOM
 const menuGrid = document.getElementById('menu-grid');
@@ -44,6 +46,21 @@ function setupEventListeners() {
     // QR Code generation
     generateQrBtn.addEventListener('click', generateQRCode);
     downloadQrBtn.addEventListener('click', downloadQRCode);
+    
+    // Toggle controls - AÑADIDO
+    const controlsToggle = document.getElementById('controls-toggle');
+    const controls = document.getElementById('controls');
+    const toggleText = controlsToggle ? controlsToggle.querySelector('.toggle-text') : null;
+
+    if (controlsToggle && controls && toggleText) {
+        controlsToggle.addEventListener('click', () => {
+            controls.classList.toggle('collapsed');
+            
+            const isCollapsed = controls.classList.contains('collapsed');
+            const textKey = isCollapsed ? 'show-controls' : 'hide-controls';
+            toggleText.textContent = translations[currentLang][textKey];
+        });
+    }
 }
 
 // Setup language switcher
@@ -62,6 +79,18 @@ function filterMenu() {
     // Filtrar por categoría
     if (currentCategory !== 'all') {
         filteredData = filteredData.filter(item => item.category === currentCategory);
+    }
+
+    // Filtrar por favoritos
+    if (showOnlyFavorites) {
+        filteredData = filteredData.filter(item => favorites.includes(item.id));
+        
+        if (filteredData.length === 0) {
+            menuGrid.innerHTML = '';
+            noResults.style.display = 'block';
+            noResults.textContent = translations[currentLang]['no-favorites'];
+            return;
+        }
     }
 
     // Filtrar por búsqueda
@@ -104,14 +133,18 @@ function renderMenu(data) {
 function createMenuItem(item) {
     const div = document.createElement('div');
     div.className = 'menu-item';
+    div.dataset.itemId = item.id;
     
-    // Obtener textos según idioma actual
     const name = typeof item.name === 'object' ? item.name[currentLang] : item.name;
     const description = typeof item.description === 'object' ? item.description[currentLang] : item.description;
     const categoryTranslated = translations[currentLang][`category-${item.category}`] || item.category;
+    const isFavorite = favorites.includes(item.id);
     
     div.innerHTML = `
-        <div class="menu-item-image">${item.image}</div>
+        <button class="favorite-btn ${isFavorite ? 'active' : ''}" data-item-id="${item.id}">
+            <span class="favorite-icon">❤️</span>
+        </button>
+        <img src="${item.image}" alt="${name}" class="menu-item-image" loading="lazy">
         <div class="menu-item-header">
             <h3 class="menu-item-name">${name}</h3>
             <span class="menu-item-price">$${item.price.toFixed(2)}</span>
@@ -119,7 +152,39 @@ function createMenuItem(item) {
         <p class="menu-item-description">${description}</p>
         <span class="menu-item-category">${categoryTranslated}</span>
     `;
+    
+    // Event listener para el botón de favoritos
+    const favoriteBtn = div.querySelector('.favorite-btn');
+    favoriteBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleFavorite(item.id);
+    });
+    
     return div;
+}
+
+// Toggle favorite
+function toggleFavorite(itemId) {
+    const index = favorites.indexOf(itemId);
+    
+    if (index > -1) {
+        favorites.splice(index, 1);
+    } else {
+        favorites.push(itemId);
+    }
+    
+    localStorage.setItem('menuFavorites', JSON.stringify(favorites));
+    filterMenu();
+}
+
+// Show favorites toggle
+const showFavoritesBtn = document.getElementById('show-favorites');
+if (showFavoritesBtn) {
+    showFavoritesBtn.addEventListener('click', () => {
+        showOnlyFavorites = !showOnlyFavorites;
+        showFavoritesBtn.classList.toggle('active');
+        filterMenu();
+    });
 }
 
 // Generar código QR
@@ -135,7 +200,7 @@ function generateQRCode() {
         text: currentURL,
         width: 256,
         height: 256,
-        colorDark: '#2d5016',  // Verde oscuro del tema
+        colorDark: '#2d5016',
         colorLight: '#ffffff',
         correctLevel: QRCode.CorrectLevel.H
     });
@@ -152,15 +217,54 @@ function downloadQRCode() {
     const qrCanvas = document.querySelector('#qr-code canvas');
     
     if (qrCanvas) {
-        // Convertir canvas a imagen
         const url = qrCanvas.toDataURL('image/png');
-        
-        // Crear link de descarga
         const link = document.createElement('a');
         link.download = 'menu-qr-code.png';
         link.href = url;
         link.click();
     }
+}
+
+// Share functionality
+const shareWhatsapp = document.getElementById('share-whatsapp');
+const shareFacebook = document.getElementById('share-facebook');
+const shareTwitter = document.getElementById('share-twitter');
+const shareCopy = document.getElementById('share-copy');
+const copyNotification = document.getElementById('copy-notification');
+
+const shareURL = window.location.href;
+const shareText = "Check out this amazing restaurant menu!";
+
+if (shareWhatsapp) {
+    shareWhatsapp.addEventListener('click', () => {
+        window.open(`https://wa.me/?text=${encodeURIComponent(shareText + ' ' + shareURL)}`, '_blank');
+    });
+}
+
+if (shareFacebook) {
+    shareFacebook.addEventListener('click', () => {
+        window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareURL)}`, '_blank');
+    });
+}
+
+if (shareTwitter) {
+    shareTwitter.addEventListener('click', () => {
+        window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(shareURL)}&text=${encodeURIComponent(shareText)}`, '_blank');
+    });
+}
+
+if (shareCopy) {
+    shareCopy.addEventListener('click', async () => {
+        try {
+            await navigator.clipboard.writeText(shareURL);
+            copyNotification.classList.add('show');
+            setTimeout(() => {
+                copyNotification.classList.remove('show');
+            }, 2000);
+        } catch (err) {
+            console.error('Failed to copy:', err);
+        }
+    });
 }
 
 // Iniciar la aplicación cuando el DOM esté listo

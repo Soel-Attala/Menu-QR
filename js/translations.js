@@ -30,7 +30,24 @@ const translations = {
         "category-starters": "Starters",
         "category-mains": "Main Courses",
         "category-desserts": "Desserts",
-        "category-drinks": "Drinks"
+        "category-drinks": "Drinks",
+        
+        // Favorites
+        "show-favorites": "❤️ Show Favorites Only",
+        "no-favorites": "No favorites yet. Click the heart icon on dishes to add them!",
+        
+        // Share
+        "share-title": "Share Our Menu",
+        "share-description": "Tell your friends about us!",
+        "share-whatsapp": "WhatsApp",
+        "share-facebook": "Facebook",
+        "share-twitter": "Twitter",
+        "share-copy": "Copy Link",
+        "link-copied": "Link copied!",
+        
+        // Controls
+        "hide-controls": "Hide Search",
+        "show-controls": "Show Search"
     },
     hu: {
         // Header
@@ -61,7 +78,24 @@ const translations = {
         "category-starters": "Előételek",
         "category-mains": "Főételek",
         "category-desserts": "Desszertek",
-        "category-drinks": "Italok"
+        "category-drinks": "Italok",
+        
+        // Favorites
+        "show-favorites": "❤️ Csak Kedvencek",
+        "no-favorites": "Még nincs kedvenc. Kattints a szív ikonra az ételeken!",
+        
+        // Share
+        "share-title": "Ossza Meg Étlapunkat",
+        "share-description": "Ajánlja barátainak!",
+        "share-whatsapp": "WhatsApp",
+        "share-facebook": "Facebook",
+        "share-twitter": "Twitter",
+        "share-copy": "Link Másolása",
+        "link-copied": "Link másolva!",
+        
+        // Controls
+        "hide-controls": "Keresés Elrejtése",
+        "show-controls": "Keresés Megjelenítése"
     }
 };
 
@@ -95,6 +129,15 @@ function changeLanguage(lang) {
             btn.classList.add('active');
         }
     });
+    
+    // Update toggle text if controls are collapsed
+    const controls = document.getElementById('controls');
+    const toggleText = document.querySelector('.toggle-text');
+    if (controls && toggleText) {
+        const isCollapsed = controls.classList.contains('collapsed');
+        const textKey = isCollapsed ? 'show-controls' : 'hide-controls';
+        toggleText.textContent = translations[lang][textKey];
+    }
     
     // Re-render menu with translated categories
     filterMenu();

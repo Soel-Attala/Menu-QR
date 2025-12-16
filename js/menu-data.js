@@ -1,5 +1,3 @@
-// Menu Data con traducciones
-
 const menuData = [
     {
         id: 1,
@@ -13,7 +11,7 @@ const menuData = [
         },
         price: 8.99,
         category: "starters",
-        image: "🥖"
+        image: "https://images.unsplash.com/photo-1572695157366-5e585ab2b69f?w=400&h=300&fit=crop"
     },
     {
         id: 2,
@@ -27,7 +25,7 @@ const menuData = [
         },
         price: 10.99,
         category: "starters",
-        image: "🥗"
+        image: "https://images.unsplash.com/photo-1592417817098-8fd3d9eb14a5?w=400&h=300&fit=crop"
     },
     {
         id: 3,
@@ -41,7 +39,7 @@ const menuData = [
         },
         price: 12.99,
         category: "starters",
-        image: "🦑"
+        image: "https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=400&h=300&fit=crop"
     },
     {
         id: 4,
@@ -55,7 +53,7 @@ const menuData = [
         },
         price: 7.99,
         category: "starters",
-        image: "🍲"
+        image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=400&h=300&fit=crop"
     },
     {
         id: 5,
@@ -69,7 +67,7 @@ const menuData = [
         },
         price: 5.99,
         category: "starters",
-        image: "🥖"
+        image: "https://images.unsplash.com/photo-1619985652302-b3d1a20f6a2e?w=400&h=300&fit=crop"
     },
     {
         id: 6,
@@ -83,7 +81,7 @@ const menuData = [
         },
         price: 14.99,
         category: "mains",
-        image: "🍕"
+        image: "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=400&h=300&fit=crop"
     },
     {
         id: 7,
@@ -97,7 +95,7 @@ const menuData = [
         },
         price: 16.99,
         category: "mains",
-        image: "🍕"
+        image: "https://images.unsplash.com/photo-1628840042765-356cda07504e?w=400&h=300&fit=crop"
     },
     {
         id: 8,
@@ -111,7 +109,7 @@ const menuData = [
         },
         price: 15.99,
         category: "mains",
-        image: "🍝"
+        image: "https://images.unsplash.com/photo-1612874742237-6526221588e3?w=400&h=300&fit=crop"
     },
     {
         id: 9,
@@ -125,7 +123,7 @@ const menuData = [
         },
         price: 14.99,
         category: "mains",
-        image: "🍝"
+        image: "https://images.unsplash.com/photo-1645112411341-6c4fd023714a?w=400&h=300&fit=crop"
     },
     {
         id: 10,
@@ -139,7 +137,7 @@ const menuData = [
         },
         price: 17.99,
         category: "mains",
-        image: "🍝"
+        image: "https://images.unsplash.com/photo-1574894709920-11b28e7367e3?w=400&h=300&fit=crop"
     },
     {
         id: 11,
@@ -153,7 +151,7 @@ const menuData = [
         },
         price: 16.99,
         category: "mains",
-        image: "🍚"
+        image: "https://images.unsplash.com/photo-1476124369491-c7addf7a7aaf?w=400&h=300&fit=crop"
     },
     {
         id: 12,
@@ -167,7 +165,7 @@ const menuData = [
         },
         price: 18.99,
         category: "mains",
-        image: "🍗"
+        image: "https://images.unsplash.com/photo-1632778149955-e80f8ceca2e8?w=400&h=300&fit=crop"
     },
     {
         id: 13,
@@ -181,7 +179,7 @@ const menuData = [
         },
         price: 24.99,
         category: "mains",
-        image: "🍖"
+        image: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=400&h=300&fit=crop"
     },
     {
         id: 14,
@@ -195,7 +193,7 @@ const menuData = [
         },
         price: 7.99,
         category: "desserts",
-        image: "🍰"
+        image: "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=400&h=300&fit=crop"
     },
     {
         id: 15,
@@ -209,7 +207,7 @@ const menuData = [
         },
         price: 6.99,
         category: "desserts",
-        image: "🍮"
+        image: "https://images.unsplash.com/photo-1488477181946-6428a0291777?w=400&h=300&fit=crop"
     },
     {
         id: 16,
@@ -223,7 +221,7 @@ const menuData = [
         },
         price: 6.99,
         category: "desserts",
-        image: "🥐"
+        image: "https://images.unsplash.com/photo-1519915212116-7cfef71f1d3e?w=400&h=300&fit=crop"
     },
     {
         id: 17,
@@ -237,7 +235,7 @@ const menuData = [
         },
         price: 5.99,
         category: "desserts",
-        image: "🍨"
+        image: "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400&h=300&fit=crop"
     },
     {
         id: 18,
@@ -251,7 +249,7 @@ const menuData = [
         },
         price: 6.99,
         category: "desserts",
-        image: "☕"
+        image: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=400&h=300&fit=crop"
     },
     {
         id: 19,
@@ -265,7 +263,7 @@ const menuData = [
         },
         price: 3.50,
         category: "drinks",
-        image: "☕"
+        image: "https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?w=400&h=300&fit=crop"
     },
     {
         id: 20,
@@ -279,7 +277,7 @@ const menuData = [
         },
         price: 4.50,
         category: "drinks",
-        image: "☕"
+        image: "https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=400&h=300&fit=crop"
     },
     {
         id: 21,
@@ -293,7 +291,7 @@ const menuData = [
         },
         price: 4.50,
         category: "drinks",
-        image: "☕"
+        image: "https://images.unsplash.com/photo-1561047029-3000c68339ca?w=400&h=300&fit=crop"
     },
     {
         id: 22,
@@ -307,7 +305,7 @@ const menuData = [
         },
         price: 4.99,
         category: "drinks",
-        image: "🍊"
+        image: "https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=400&h=300&fit=crop"
     },
     {
         id: 23,
@@ -321,7 +319,7 @@ const menuData = [
         },
         price: 3.99,
         category: "drinks",
-        image: "🥤"
+        image: "https://images.unsplash.com/photo-1546173159-315724a31696?w=400&h=300&fit=crop"
     },
     {
         id: 24,
@@ -335,7 +333,7 @@ const menuData = [
         },
         price: 6.99,
         category: "drinks",
-        image: "🍷"
+        image: "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=400&h=300&fit=crop"
     },
     {
         id: 25,
@@ -349,8 +347,6 @@ const menuData = [
         },
         price: 5.99,
         category: "drinks",
-        image: "🍺"
+        image: "https://images.unsplash.com/photo-1608270586620-248524c67de9?w=400&h=300&fit=crop"
     }
-
-
 ];
