@@ -17,6 +17,7 @@ const downloadQrBtn = document.getElementById('download-qr');
 function init() {
     renderMenu(menuData);
     setupEventListeners();
+    setupLanguageSwitcher();
 }
 
 // Configurar event listeners
@@ -45,6 +46,15 @@ function setupEventListeners() {
     downloadQrBtn.addEventListener('click', downloadQRCode);
 }
 
+// Setup language switcher
+function setupLanguageSwitcher() {
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            changeLanguage(btn.dataset.lang);
+        });
+    });
+}
+
 // Filtrar menú según categoría y búsqueda
 function filterMenu() {
     let filteredData = menuData;
@@ -56,10 +66,14 @@ function filterMenu() {
 
     // Filtrar por búsqueda
     if (searchTerm) {
-        filteredData = filteredData.filter(item => 
-            item.name.toLowerCase().includes(searchTerm) ||
-            item.description.toLowerCase().includes(searchTerm)
-        );
+        filteredData = filteredData.filter(item => {
+            // Obtener textos según idioma actual
+            const name = typeof item.name === 'object' ? item.name[currentLang] : item.name;
+            const description = typeof item.description === 'object' ? item.description[currentLang] : item.description;
+            
+            return name.toLowerCase().includes(searchTerm) ||
+                   description.toLowerCase().includes(searchTerm);
+        });
     }
 
     renderMenu(filteredData);
@@ -73,6 +87,7 @@ function renderMenu(data) {
     // Mostrar/ocultar mensaje de "no results"
     if (data.length === 0) {
         noResults.style.display = 'block';
+        noResults.textContent = translations[currentLang]['no-results'];
         return;
     } else {
         noResults.style.display = 'none';
@@ -89,13 +104,20 @@ function renderMenu(data) {
 function createMenuItem(item) {
     const div = document.createElement('div');
     div.className = 'menu-item';
+    
+    // Obtener textos según idioma actual
+    const name = typeof item.name === 'object' ? item.name[currentLang] : item.name;
+    const description = typeof item.description === 'object' ? item.description[currentLang] : item.description;
+    const categoryTranslated = translations[currentLang][`category-${item.category}`] || item.category;
+    
     div.innerHTML = `
+        <div class="menu-item-image">${item.image}</div>
         <div class="menu-item-header">
-            <h3 class="menu-item-name">${item.name}</h3>
+            <h3 class="menu-item-name">${name}</h3>
             <span class="menu-item-price">$${item.price.toFixed(2)}</span>
         </div>
-        <p class="menu-item-description">${item.description}</p>
-        <span class="menu-item-category">${item.category}</span>
+        <p class="menu-item-description">${description}</p>
+        <span class="menu-item-category">${categoryTranslated}</span>
     `;
     return div;
 }
@@ -108,12 +130,12 @@ function generateQRCode() {
     // URL actual de la página
     const currentURL = window.location.href;
 
-    // Generar nuevo QR
+    // Generar nuevo QR con colores verdes
     new QRCode(document.getElementById('qr-code'), {
         text: currentURL,
         width: 256,
         height: 256,
-        colorDark: '#e63946',
+        colorDark: '#2d5016',  // Verde oscuro del tema
         colorLight: '#ffffff',
         correctLevel: QRCode.CorrectLevel.H
     });
@@ -141,3 +163,5 @@ function downloadQRCode() {
     }
 }
 
+// Iniciar la aplicación cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', init);

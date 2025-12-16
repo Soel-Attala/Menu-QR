@@ -11,33 +11,39 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <!-- HEADER -->
     <header class="header">
-        <div class="container">
-            <h1 class="restaurant-name">🍕 La Trattoria</h1>
-            <p class="restaurant-tagline">Authentic Italian Cuisine</p>
+    <div class="container">
+        <h1 class="restaurant-name" data-i18n="restaurant-name">🍷 La Trattoria</h1>
+        <p class="restaurant-tagline" data-i18n="restaurant-tagline">Authentic Italian Cuisine</p>
+        
+        <!-- LANGUAGE SWITCHER -->
+        <div class="language-switcher">
+            <button class="lang-btn active" data-lang="en">English</button>
+            <button class="lang-btn" data-lang="hu">Magyar</button>
         </div>
-    </header>
+    </div>
+</header>
 
-    <!-- SEARCH AND FILTERS -->
-    <section class="controls">
-        <div class="container">
-            <div class="search-box">
-                <input type="text" 
-                       id="search" 
-                       placeholder="🔍 Search dishes..."
-                       class="search-input">
-            </div>
-            
-            <div class="filters">
-                <button class="filter-btn active" data-category="all">All</button>
-                <button class="filter-btn" data-category="starters">Starters</button>
-                <button class="filter-btn" data-category="mains">Main Courses</button>
-                <button class="filter-btn" data-category="desserts">Desserts</button>
-                <button class="filter-btn" data-category="drinks">Drinks</button>
-            </div>
+<!-- SEARCH AND FILTERS -->
+<section class="controls">
+    <div class="container">
+        <div class="search-box">
+            <input type="text" 
+                   id="search" 
+                   placeholder="🔍 Search dishes..."
+                   data-i18n-placeholder="search-placeholder"
+                   class="search-input">
         </div>
-    </section>
+        
+        <div class="filters">
+            <button class="filter-btn active" data-category="all" data-i18n="filter-all">All</button>
+            <button class="filter-btn" data-category="starters" data-i18n="filter-starters">Starters</button>
+            <button class="filter-btn" data-category="mains" data-i18n="filter-mains">Main Courses</button>
+            <button class="filter-btn" data-category="desserts" data-i18n="filter-desserts">Desserts</button>
+            <button class="filter-btn" data-category="drinks" data-i18n="filter-drinks">Drinks</button>
+        </div>
+    </div>
+</section>
 
     <!-- MENU ITEMS -->
     <section class="menu-section">
@@ -52,20 +58,20 @@
         </div>
     </section>
 
-    <!-- QR CODE SECTION -->
-    <section class="qr-section">
-        <div class="container">
-            <h2>Share This Menu</h2>
-            <p>Generate a QR code for customers to scan</p>
-            <button id="generate-qr" class="btn-primary">Generate QR Code</button>
-            
-            <div id="qr-container" class="qr-container" style="display: none;">
-                <div id="qr-code"></div>
-                <p class="qr-instruction">Scan to view the menu</p>
-                <button id="download-qr" class="btn-secondary">Download QR</button>
-            </div>
+<!-- QR CODE SECTION -->
+<section class="qr-section">
+    <div class="container">
+        <h2 data-i18n="qr-title">QR Code Generator</h2>
+        <p data-i18n="qr-description">For future delivery integration</p>
+        <button id="generate-qr" class="btn-primary" data-i18n="qr-generate">Generate QR Code</button>
+        
+        <div id="qr-container" class="qr-container" style="display: none;">
+            <div id="qr-code"></div>
+            <p class="qr-instruction" data-i18n="qr-instruction">Scan to view the menu</p>
+            <button id="download-qr" class="btn-secondary" data-i18n="qr-download">Download QR</button>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- FOOTER -->
     <footer class="footer">
@@ -74,11 +80,12 @@
         </div>
     </footer>
 
-    <!-- QR Code Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-    
-    <!-- Our Scripts -->
-    <script src="js/menu-data.js"></script>
-    <script src="js/menu.js"></script>
+<!-- QR Code Library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<!-- Our Scripts -->
+<script src="js/translations.js"></script>
+<script src="js/menu-data.js"></script>
+<script src="js/menu.js"></script>
 </body>
 </html>
